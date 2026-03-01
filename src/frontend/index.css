@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mona Sans - Display/Headings */
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/assets/fonts/Mona-Sans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Plus Jakarta Sans - Body */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans[wght].woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Geist Mono - Code/Labels */
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Dark professional palette — deep slate + electric teal accent */
+    --background: 0.13 0.008 250;
+    --foreground: 0.93 0.008 245;
+
+    --card: 0.17 0.01 250;
+    --card-foreground: 0.93 0.008 245;
+
+    --popover: 0.19 0.012 252;
+    --popover-foreground: 0.93 0.008 245;
+
+    /* Electric teal primary */
+    --primary: 0.72 0.18 196;
+    --primary-foreground: 0.1 0.02 250;
+
+    --secondary: 0.22 0.015 252;
+    --secondary-foreground: 0.85 0.01 245;
+
+    --muted: 0.2 0.012 252;
+    --muted-foreground: 0.58 0.02 250;
+
+    --accent: 0.72 0.18 196;
+    --accent-foreground: 0.1 0.02 250;
+
+    --destructive: 0.62 0.22 22;
+    --destructive-foreground: 0.98 0.005 0;
+
+    --border: 0.28 0.015 252;
+    --input: 0.22 0.012 252;
+    --ring: 0.72 0.18 196;
+
+    /* Status colors */
+    --success: 0.65 0.18 152;
+    --success-foreground: 0.1 0.02 150;
+    --warning: 0.75 0.16 65;
+    --warning-foreground: 0.1 0.02 60;
+
+    /* Chart */
+    --chart-1: 0.72 0.18 196;
+    --chart-2: 0.65 0.18 152;
+    --chart-3: 0.75 0.16 65;
+    --chart-4: 0.62 0.22 22;
+    --chart-5: 0.68 0.2 280;
+
+    /* Sidebar */
+    --sidebar: 0.11 0.01 252;
+    --sidebar-foreground: 0.93 0.008 245;
+    --sidebar-primary: 0.72 0.18 196;
+    --sidebar-primary-foreground: 0.1 0.02 250;
+    --sidebar-accent: 0.2 0.015 252;
+    --sidebar-accent-foreground: 0.85 0.01 245;
+    --sidebar-border: 0.22 0.012 252;
+    --sidebar-ring: 0.72 0.18 196;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Mona Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Mona Sans", sans-serif;
+  }
+
+  .font-mono {
+    font-family: "Geist Mono", monospace;
+  }
+
+  /* Teal glow effect */
+  .glow-teal {
+    box-shadow: 0 0 20px oklch(0.72 0.18 196 / 0.3);
+  }
+
+  .glow-teal-sm {
+    box-shadow: 0 0 10px oklch(0.72 0.18 196 / 0.25);
+  }
+
+  /* Gradient mesh background */
+  .bg-mesh {
+    background: 
+      radial-gradient(ellipse at 20% 20%, oklch(0.72 0.18 196 / 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, oklch(0.68 0.2 280 / 0.06) 0%, transparent 50%),
+      oklch(0.13 0.008 250);
+  }
+
+  /* Glass card effect */
+  .glass {
+    background: oklch(0.17 0.01 250 / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.28 0.015 252 / 0.6);
+  }
+
+  /* Status badge */
+  .status-pending {
+    background: oklch(0.75 0.16 65 / 0.15);
+    color: oklch(0.85 0.16 65);
+    border: 1px solid oklch(0.75 0.16 65 / 0.3);
+  }
+
+  .status-approved {
+    background: oklch(0.65 0.18 152 / 0.15);
+    color: oklch(0.75 0.18 152);
+    border: 1px solid oklch(0.65 0.18 152 / 0.3);
+  }
+
+  .status-rejected {
+    background: oklch(0.62 0.22 22 / 0.15);
+    color: oklch(0.75 0.22 22);
+    border: 1px solid oklch(0.62 0.22 22 / 0.3);
+  }
+
+  /* Sidebar active item */
+  .nav-active {
+    background: oklch(0.72 0.18 196 / 0.12);
+    color: oklch(0.72 0.18 196);
+    border-left: 2px solid oklch(0.72 0.18 196);
+  }
+}
